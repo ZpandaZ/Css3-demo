@@ -1,0 +1,171 @@
+.trans_box{
+    width: 200px;
+    margin: 20px;
+    overflow: hidden;
+}
+.trans_image_box {
+    width: 1000px;
+    height: 200px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+.trans_image {
+    width: 200px;
+    float: left;
+}
+.trans_image_trigger {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.anim_box{
+    display: inline-block;
+}
+
+.anim_image {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    cursor:pointer;
+}
+.anim_image_top {
+    position: absolute;
+    -webkit-transform: scale(0, 0);
+    opacity: 0;
+    filter: Alpha(opacity=0);
+}
+.anim_box:hover .anim_image_top  {
+    opacity: 1;
+    filter: Alpha(opacity=100);
+    -webkit-transform: scale(1, 1);
+    -webkit-transform-origin: top right;        
+}
+.anim_box:hover .anim_image_bottom{
+    -webkit-transform: scale(0, 0);
+    -webkit-transform-origin: bottom left;
+}
+
+.animate_area   
+{
+    width:500;
+    height:300px;
+    background-image:url(../images/Blade.jpg),url(../images/Blade.jpg);
+    background-position: 20px -90px, 30px 80px;
+    background-repeat: no-repeat,no-repeat;
+    position:relative;
+    animation:mymove 5s infinite;
+    -webkit-animation:mymove 5s infinite; /*Safari and Chrome*/
+}
+
+@keyframes mymove
+{
+    0% { background-position: 20px -90px, 30px 80px }
+    50% { background-position: 150px 80px , 400px 10px}
+    100 { background-position: 20px -90px, 30px 80px }
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+    0% { background-position: 20px -90px, 30px 80px }
+    50% { background-position: 150px 80px , 400px 10px}
+    100 { background-position: 20px -90px, 30px 80px }
+}
+
+
+.container{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto;
+    -webkit-perspective: 1000;
+         -moz-perspective: 1000px;
+           -o-perspective: 1000px;
+              perspective: 1000px;
+}
+
+.container img{
+    position:absolute;
+}
+
+#carousel{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotation 18s infinite linear;
+}
+
+#carousel figure{
+    display: block;
+    position: absolute;
+    width: 190px;
+    height: 116px;
+    top: 100px;
+    overflow: hidden;
+    border: solid 5px black;
+}
+
+#carousel img:hover{
+    transform: scale(1.2);
+}
+
+#carousel figure:nth-child(1) {transform: rotateY(0deg)  translateZ(288px);}
+#carousel figure:nth-child(2) { transform: rotateY(45deg) translateZ(100px);}
+#carousel figure:nth-child(3) { transform: rotateY(90deg) translateZ(288px);}
+#carousel figure:nth-child(4) { transform: rotateY(135deg) translateZ(100px);}
+#carousel figure:nth-child(5) { transform: rotateY(180deg) translateZ(288px);}
+#carousel figure:nth-child(6) { transform: rotateY(225deg) translateZ(100px);}
+#carousel figure:nth-child(7) { transform: rotateY(270deg) translateZ(288px);}
+#carousel figure:nth-child(8) { transform: rotateY(315deg) translateZ(100px);}
+
+@keyframes rotation{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+
+
+
+.book{
+    margin: auto;
+    position: relative;
+    -webkit-transform-style: preserve-3d;   
+    -moz-transform-style: preserve-3d;   
+    -ms-transform-style: preserve-3d;   
+    transform-style: preserve-3d;   
+    transform: rotatex(15deg); 
+}
+
+.page .left{
+    backface-visibility:hidden;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform-origin: right;
+     transform-style: preserve-3d; 
+}
+
+.page .right{
+    backface-visibility:hidden;
+    -webkit-transition: all 1.5s ease;
+    -moz-transition: all 1.5s ease;
+    -o-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+    -webkit-transform-origin: left;
+     transform-style: preserve-3d; 
+}
+
+.page .left:hover{
+    transform: rotateY(-180deg);
+}
+
+.page .right:hover{
+    transform: rotateY(180deg);
+}
